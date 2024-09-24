@@ -138,9 +138,15 @@ chrome.runtime.onInstalled.addListener(() => {
                 priority: 1,
                 action: { type: 'block' },
                 condition: { urlFilter: '*://*.googleads.g.doubleclick.net/*', resourceTypes: ['script', 'xmlhttprequest'] }
+            },
+            {
+                id: 24,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'doubleverify.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
             }
             // You can continue adding more blocking rules here...
         ],
-        removeRuleIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,21,22,23] 
+        removeRuleIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24] 
     });
 });
