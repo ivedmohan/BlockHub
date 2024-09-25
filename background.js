@@ -168,7 +168,7 @@ chrome.runtime.onInstalled.addListener(() => {
                 }
             },
 
-            // Blocking Popups and Iframes
+            // Blocking Popups 
             {
                 id: 27,
                 priority: 1,
