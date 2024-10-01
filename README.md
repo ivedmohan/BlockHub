@@ -14,20 +14,34 @@ BlockHub is an open-source Chrome extension designed to block ads across various
 ## Installation
 
 1. Clone the repository:
-   ```bash
+   ```sh
    git clone https://github.com/yourusername/BlockHub.git
-2. Open Chrome and navigate to `chrome://extensions/.`
+   ```
+2. Open Chrome and navigate to `chrome://extensions/`
 3. Enable "Developer mode" (toggle in the top right corner).
 4. Click on "Load unpacked" and select the cloned BlockHub directory.
-Usage
-5. Once installed, the extension will automatically start blocking ads.
-6. You can customize settings and filters by clicking on the BlockHub icon in the toolbar.
-Contributing
 
-We welcome contributions! Here’s how you can help:
+## Usage
 
-Fork the Repository: Click the fork button on the top right of the repository page.
-Make Changes: Create a new branch, make your changes, and commit them.
-Open a Pull Request: Submit a pull request to the main repository for review.
-Hacktoberfest
-Join us in celebrating Hacktoberfest! Contribute to BlockHub and earn a chance to receive some awesome swag!
+- Once installed, the extension will automatically start blocking ads.
+- You can customize settings and filters by clicking on the BlockHub icon in the toolbar.
+
+### 🎉HacktoberFest :
+
+![Hacktoberfest](./assets/logo-hacktoberfest-11--beige.2b2fdfcb.svg)
+
+🚀Join us in celebrating Hacktoberfest'24 ,this project is part of it. Contribute to BlockHub and earn a chance to receive some awesome swags!
+
+## Contributing
+
+We are open for contributions! Feel free to visit [here](CONTRIBUTING.md).
+
+> New features coming soon. Stay tuned!
+
+## Project Contributors
+
+<div align="center">
+<a href="https://github.com/ivedmohan/BlockHub/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=ivedmohan/BlockHub" />
+</a>
+</div>
