@@ -143,70 +143,114 @@ chrome.runtime.onInstalled.addListener(() => {
                 id: 24,
                 priority: 1,
                 action: { type: 'block' },
-                condition: { urlFilter: 'adserverpub.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                condition: { urlFilter: 'media.net', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+
             },
             {
                 id: 25,
                 priority: 1,
                 action: { type: 'block' },
-                condition: { urlFilter: 'adtech.de', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                condition: { urlFilter: 'gumgum.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+
             },
             {
                 id: 26,
                 priority: 1,
                 action: { type: 'block' },
-                condition: { urlFilter: 'advertising.aol.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                condition: { urlFilter: 'mediafire.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+
             },
             {
                 id: 27,
                 priority: 1,
                 action: { type: 'block' },
-                condition: { urlFilter: 'bidswitch.net', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                condition: { urlFilter: 'revcontent.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+
             },
             {
                 id: 28,
                 priority: 1,
                 action: { type: 'block' },
-                condition: { urlFilter: 'casalemedia.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                condition: { urlFilter: 'popads.net', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+
             },
             {
                 id: 29,
                 priority: 1,
                 action: { type: 'block' },
-                condition: { urlFilter: 'imrworldwide.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                condition: { urlFilter: 'adroll.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
             },
             {
                 id: 30,
                 priority: 1,
                 action: { type: 'block' },
-                condition: { urlFilter: 'millennialmedia.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                condition: { urlFilter: 'adserverpub.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
             },
             {
                 id: 31,
                 priority: 1,
                 action: { type: 'block' },
-                condition: { urlFilter: 'pubmatic.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                condition: { urlFilter: 'amazon-adsystem.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
             },
             {
                 id: 32,
                 priority: 1,
                 action: { type: 'block' },
-                condition: { urlFilter: 'smaato.net', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                condition: { urlFilter: 'sovrn.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
             },
             {
                 id: 33,
                 priority: 1,
                 action: { type: 'block' },
-                condition: { urlFilter: 'sovrn.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                condition: { urlFilter: 'smaato.net', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
             },
             {
                 id: 34,
                 priority: 1,
                 action: { type: 'block' },
-                condition: { urlFilter: 'amazon-adsystem.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                condition: { urlFilter: 'pubmatic.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
             },
+            {
+                id: 35,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'millennialmedia.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 36,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'imrworldwide.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 37,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'casalemedia.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 38,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'bidswitch.net', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 39,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'advertising.aol.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 40,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'adtech.de', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            }
             // You can continue adding more blocking rules here...
         ],
-        removeRuleIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,21,22,23 ,24,25,26,27,28,29,20,31,32,33,34] 
+        removeRuleIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
     });
 });
+
+
+
