@@ -174,6 +174,132 @@ chrome.runtime.onInstalled.addListener(() => {
                 priority: 1,
                 action: { type: 'block' },
                 condition: { urlFilter: 'adroll.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 30,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'adserver.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 31,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'adtech.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 32,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'servedbyadserver.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 33,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'ads.yahoo.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 34,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'adfly.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 35,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'admarketplace.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 36,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'adperceptions.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 37,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'adroll.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 38,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'mopub.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 39,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'clicksor.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 40,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'adnetwork.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 41,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'advertisingnetwork.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 42,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'vungle.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 43,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'yahoo.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 44,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'tremorhub.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 45,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'adbutler.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 46,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'popcash.net', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 47,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'admaster.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 48,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'juicyads.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 49,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'popunder.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 50,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'adf.ly', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
             }
             // You can continue adding more blocking rules here...
         ],
