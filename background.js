@@ -144,9 +144,39 @@ chrome.runtime.onInstalled.addListener(() => {
                 priority: 1,
                 action: { type: 'block' },
                 condition: { urlFilter: 'media.net', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 25,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'gumgum.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 26,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'mediafire.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 27,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'revcontent.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 28,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'popads.net', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+            },
+            {
+                id: 29,
+                priority: 1,
+                action: { type: 'block' },
+                condition: { urlFilter: 'adroll.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
             }
             // You can continue adding more blocking rules here...
         ],
-        removeRuleIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+        removeRuleIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
     });
 });
