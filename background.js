@@ -184,7 +184,41 @@ function updateAdBlocker() {
                             action: { type: 'block' },
                             condition: { urlFilter: 'adroll.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
                         }
-                        // You can continue adding more blocking rules here...
+                      
+                        {
+                            id: 34,
+                            priority: 1,
+                            action: { type: 'block' },
+                            condition: { urlFilter: 'doubleverify.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                              
+                        {
+                            id: 35,
+                            priority: 1,
+                            action: { type: 'block' },
+                            condition: { urlFilter: 'bidr.io', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                        {
+                             id: 36,
+                             priority: 1,
+                             action: { type: 'block' },
+                             condition: { urlFilter: 'triplelift.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                        {
+                             id: 37,
+                             priority: 1,
+                             action: { type: 'block' },
+                             condition: { urlFilter: 'adsrvr.org', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                        {
+                             id: 38,
+                             priority: 1,
+                             action: { type: 'block' },
+                             condition: { urlFilter: 'appnexus.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                         }
+
+                         // You can continue adding more blocking rules here...
+
                     ],
                     removeRuleIds: [] // No rules to remove when enabling
                 }, () => {
