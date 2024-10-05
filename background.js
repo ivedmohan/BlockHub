@@ -2,255 +2,175 @@ let adBlockerEnabled = false;
 
 function updateAdBlocker() {
     if (adBlockerEnabled) {
-        chrome.declarativeNetRequest.updateDynamicRules({
-            removeRuleIds: Array.from({ length: 30 }, (_, i) => i + 1) 
-        }, () => {
-            if (chrome.runtime.lastError) {
-                console.error("Error removing rules:", JSON.stringify(chrome.runtime.lastError));
-            } else {
-                chrome.declarativeNetRequest.updateDynamicRules({
-                    addRules: [
-                        {
-                            id: 1,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'doubleclick.net', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 2,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'ads.pubmatic.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 3,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'taboola.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 4,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'adservice.google.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 5,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'ad.doubleclick.net', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 6,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'googlesyndication.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 7,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'amazon-adsystem.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 8,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'connect.facebook.net', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 9,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'outbrain.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 10,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'criteo.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 11,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'scorecardresearch.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 12,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'adnxs.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 13,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'yimg.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 14,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'advertising.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 15,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'zedo.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 16,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'smartadserver.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 17,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'adsafeprotected.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 18,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'moatads.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 19,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'yieldmanager.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 20,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'revcontent.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 21,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: '*://*.youtube.com/get_video_info*', resourceTypes: ['script', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 22,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: '*://*.youtube.com/watch*', resourceTypes: ['media'] }
-                        },
-                        {
-                            id: 23,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: '*://*.googleads.g.doubleclick.net/*', resourceTypes: ['script', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 24,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'media.net', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 25,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'gumgum.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 26,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'mediafire.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 27,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'revcontent.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 28,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'popads.net', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                            id: 29,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'adroll.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        }
-                      
-                        {
-                            id: 34,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'doubleverify.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                              
-                        {
-                            id: 35,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'bidr.io', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                             id: 36,
-                             priority: 1,
-                             action: { type: 'block' },
-                             condition: { urlFilter: 'triplelift.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                             id: 37,
-                             priority: 1,
-                             action: { type: 'block' },
-                             condition: { urlFilter: 'adsrvr.org', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        },
-                        {
-                             id: 38,
-                             priority: 1,
-                             action: { type: 'block' },
-                             condition: { urlFilter: 'appnexus.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                         }
+        const rules = [
+            '*://*.doubleclick.net/*',
+            '*://*.ads.pubmatic.com/*',
+            '*://*.taboola.com/*',
+            '*://*.adservice.google.com/*',
+            '*://*.adbrite.com/*',
+            '*://*.exponential.com/*',
+            '*://*.adroll.com/*',
+            '*://*.advertising.com/*',
+            '*://*.adnxs.com/*',
+            '*://*.adform.net/*',
+            '*://*.adzerk.net/*',
+            '*://*.adtechus.com/*',
+            '*://*.adblade.com/*',
+            '*://*.adk2x.com/*',
+            '*://*.admarketplace.net/*',
+            '*://*.admob.com/*',
+            '*://*.adsafeprotected.com/*',
+            '*://*.adsrvr.org/*',
+            '*://*.adstir.com/*',
+            '*://*.adtech.de/*',
+            '*://*.adtraction.com/*',
+            '*://*.advertserve.com/*',
+            '*://adtago.s3.amazonaws.com/*',
+            '*://advice-ads.s3.amazonaws.com/*',
+            '*://analytics.s3.amazonaws.com/*',
+            '*://analyticsengine.s3.amazonaws.com/*',
+            '*://pagead2.googleadservices.com/*',
+            '*://adservetx.media.net/*',
+            '*://click.googleanalytics.com/*',
+            '*://analytics.google.com/*',
+            '*://google-analytics.com/*',
+            '*://ssl.google-analytics.com/*',
+            '*://insights.hotjar.com/*',
+            '*://claritybt.freshmarketer.com/*',
+            '*://fwtracks.freshmarketer.com/*',
+            '*://stats.wp.com/*',
+            '*://app.getsentry.com/*',
+            '*://ads.pinterest.com/*',
+            '*://log.pinterest.com/*',
+            '*://analytics.pinterest.com/*',
+            '*://trk.pinterest.com/*',
+            '*://events.redditmedia.com/*',
+            '*://ads.youtube.com/*',
+            '*://adtech.yahooinc.com/*',
+            '*://log.fc.yahoo.com/*',
+            '*://udcm.yahoo.com/*',
+            '*://geo.yahoo.com/*',
+            '*://udc.yahoo.com/*',
+            '*://analytics.query.yahoo.com/*',
+            '*://gemini.yahoo.com/*',
+            '*://ads.yahoo.com/*',
+            '*://partnerads.ysm.yahoo.com/*',
+            '*://analytics.yahoo.com/*',
+            '*://appmetrica.yandex.ru/*',
+            '*://extmaps-api.yandex.net/*',
+            '*://adfstat.yandex.ru/*',
+            '*://offerwall.yandex.net/*',
+            '*://metrika.yandex.ru/*',
+            '*://config.unityads.unity3d.com/*',
+            '*://adserver.unityads.unity3d.com/*',
+            '*://auction.unityads.unity3d.com/*',
+            '*://webview.unityads.unity3d.com/*',
+            '*://bdapi-in-ads.realmemobile.com/*',
+            '*://iot-logser.realme.com/*',
+            '*://iot-eu-logser.realme.com/*',
+            '*://bdapi-ads.realmemobile.com/*',
+            '*://api.ad.xiaomi.com/*',
+            '*://sdkconfig.ad.xiaomi.com/*',
+            '*://sdkconfig.ad.intl.xiaomi.com/*',
+            '*://data.mistat.rus.xiaomi.com/*',
+            '*://tracking.rus.miui.com/*',
+            '*://data.mistat.india.xiaomi.com/*',
+            '*://data.mistat.xiaomi.com/*',
+            '*://adx.ads.oppomobile.com/*',
+            '*://ck.ads.oppomobile.com/*',
+            '*://data.ads.oppomobile.com/*',
+            '*://adsfs.oppomobile.com/*',
+            '*://grs.hicloud.com/*',
+            '*://logbak.hicloud.com/*',
+            '*://logservice.hicloud.com/*',
+            '*://logservice1.hicloud.com/*',
+            '*://metrics.data.hicloud.com/*',
+            '*://metrics2.data.hicloud.com/*',
+            '*://open.oneplus.net/*',
+            '*://click.oneplus.cn/*',
+            '*://smetrics.samsung.com/*',
+            '*://analytics-api.samsunghealthcn.com/*',
+            '*://samsungads.com/*',
+            '*://samsung-com.112.2o7.net/*',
+            '*://metrics.mzstatic.com/*',
+            '*://metrics.icloud.com/*',
+            '*://weather-analytics-events.apple.com/*',
+            '*://notes-analytics-events.apple.com/*',
+            '*://books-analytics-events.apple.com/*',
+            '*://api-adservices.apple.com/*',
+            '*://iadsdk.apple.com/*',
+            '*://wd.adcolony.com/*',
+            '*://ads30.adcolony.com/*',
+            '*://adc3-launch.adcolony.com/*',
+            '*://events3alt.adcolony.com/*',
+            '*://static.media.net/*',
+            '*://media.net/*',
+            '*://events.hotjar.io/*',
+            '*://adm.hotjar.com/*',
+            '*://script.hotjar.com/*',
+            '*://surveys.hotjar.com/*',
+            '*://identify.hotjar.com/*',
+            '*://careers.hotjar.com/*',
+            '*://cdn.mouseflow.com/*',
+            '*://cdn-test.mouseflow.com/*',
+            '*://o2.mouseflow.com/*',
+            '*://mouseflow.com/*',
+            '*://tools.mouseflow.com/*',
+            '*://freshmarketer.com/*',
+            '*://upload.luckyorange.net/*',
+            '*://cs.luckyorange.net/*',
+            '*://realtime.luckyorange.com/*',
+            '*://settings.luckyorange.net/*',
+            '*://luckyorange.com/*',
+            '*://cdn.luckyorange.com/*',
+            '*://w1.luckyorange.com/*',
+            '*://api.luckyorange.com/*',
+            '*://sessions.bugsnag.com/*',
+            '*://notify.bugsnag.com/*',
+            '*://api.bugsnag.com/*',
+            '*://app.bugsnag.com/*',
+            '*://browser.sentry-cdn.com/*',
+            '*://an.facebook.com/*',
+            '*://pixel.facebook.com/*',
+            '*://static.ads-twitter.com/*',
+            '*://ads-api.twitter.com/*',
+            '*://analytics.pointdrive.linkedin.com/*',
+            '*://ads.linkedin.com/*',
+            '*://events.reddit.com/*',
+            '*://ads-api.tiktok.com/*',
+            '*://analytics.tiktok.com/*',
+            '*://ads-sg.tiktok.com/*',
+            '*://analytics-sg.tiktok.com/*',
+            '*://business-api.tiktok.com/*',
+            '*://ads.tiktok.com/*',
+            '*://log.byteoversea.com/*',
+            '*://adfox.yandex.ru/*',
+            '*://nmetrics.samsung.com/*'
+        ];
 
-                         // You can continue adding more blocking rules here...
-
-                    ],
-                    removeRuleIds: [] // No rules to remove when enabling
-                }, () => {
-                    if (chrome.runtime.lastError) {
-                        console.error("Error enabling ad blocking:", JSON.stringify(chrome.runtime.lastError));
-                    }
-                });
-            }
-        });
+        browser.webRequest.onBeforeRequest.addListener(
+            function(details) {
+                return { cancel: true };
+            },
+            { urls: rules },
+            ['blocking']
+        );
     } else {
-        // Disable ad blocking rules
-        chrome.declarativeNetRequest.updateDynamicRules({
-            removeRuleIds: Array.from({ length: 30 }, (_, i) => i + 1) 
-        }, () => {
-            if (chrome.runtime.lastError) {
-                console.error("Error disabling ad blocking:", JSON.stringify(chrome.runtime.lastError));
-            }
-        });
+        browser.webRequest.onBeforeRequest.removeListener();
     }
 }
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === "toggleBlocking") {
         adBlockerEnabled = request.enabled;
         updateAdBlocker();
-        sendResponse({ success: true })
+        sendResponse({ success: true });
     } else {
-        sendResponse({ success: false }); 
+        sendResponse({ success: false });
     }
 });
 
-chrome.storage.sync.get('adBlockerEnabled', (data) => {
+browser.storage.sync.get('adBlockerEnabled').then((data) => {
     adBlockerEnabled = data.adBlockerEnabled || false;
     updateAdBlocker();
 });

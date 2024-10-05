@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const statusText = document.getElementById('status');
 
     function toggleAdBlocker(enabled) {
-        chrome.runtime.sendMessage({ action: "toggleBlocking", enabled: enabled }, (response) => {
+        browser.runtime.sendMessage({ action: "toggleBlocking", enabled: enabled }).then((response) => {
             if (response.success) {
                 console.log('Ad blocker state updated:', enabled);
-                chrome.storage.local.set({ adBlockerEnabled: enabled });
+                browser.storage.local.set({ adBlockerEnabled: enabled });
                 updateUI(enabled);
             }
         });
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleAdBlocker(isEnabled); 
     });
 
-    chrome.storage.local.get('adBlockerEnabled', (data) => {
+    browser.storage.local.get('adBlockerEnabled').then((data) => {
         const adBlockerEnabled = data.adBlockerEnabled || false; 
         updateUI(adBlockerEnabled);
     });

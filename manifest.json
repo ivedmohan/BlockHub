@@ -1,24 +1,29 @@
 {
     "name": "BlockHub",
-    "version": "1.0.0",
-    "description": "AdBlocker that blocks ads on the web",
+    "version": "1.1.0",
+    "description": "BlockHub is an advanced ad blocker that effectively blocks ads on the web, providing a cleaner and faster browsing experience.",
     "permissions": [
-        "declarativeNetRequest",
-        "declarativeNetRequestWithHostAccess",
-        "storage"
+        "webRequest",
+        "webRequestBlocking",
+        "storage",
+        "<all_urls>"
     ],
     "background": {
-        "service_worker": "background.js"
+        "scripts": ["background.js"]
     },
     "icons": {
         "16": "icons/icon16.png"
     },
-    "host_permissions": ["<all_urls>"],
-    "action": {
+    "browser_action": {
         "default_popup": "popup.html",
         "default_icon": {
             "16": "icons/icon16.png"
         }
     },
-    "manifest_version": 3
+    "applications": {
+        "gecko": {
+            "id": "your-extension-id@example.com"
+        }
+    },
+    "manifest_version": 2
 }
