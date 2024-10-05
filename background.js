@@ -1,5 +1,5 @@
 let adBlockerEnabled = false;
-let blockingStats = { totalBlocked: 0 };
+let blockingStats = { totalBlocked: 0, blockedByCategory: {} };
 
 const RULE_CATEGORIES = {
     ADS: 'ads',
@@ -157,11 +157,18 @@ let rules = {
     ]
 };
 
+let enabledCategories = Object.values(RULE_CATEGORIES);
+let customRules = [];
+let whitelist = [];
+
 function updateAdBlocker() {
     browser.webRequest.onBeforeRequest.removeListener(blockRequest);
     
     if (adBlockerEnabled) {
-        const activeRules = Object.values(rules).flat();
+        const activeRules = [
+            ...customRules,
+            ...enabledCategories.flatMap(category => rules[category])
+        ];
         
         browser.webRequest.onBeforeRequest.addListener(
             blockRequest,
@@ -172,9 +179,32 @@ function updateAdBlocker() {
 }
 
 function blockRequest(details) {
+    if (isWhitelisted(details.url)) {
+        return { cancel: false };
+    }
+    
     blockingStats.totalBlocked++;
+    
+    const category = getCategoryForUrl(details.url);
+    if (category) {
+        blockingStats.blockedByCategory[category] = (blockingStats.blockedByCategory[category] || 0) + 1;
+    }
+    
     console.log(`Blocked request to: ${details.url}`);
     return { cancel: true };
+}
+
+function getCategoryForUrl(url) {
+    for (const [category, ruleSet] of Object.entries(rules)) {
+        if (ruleSet.some(rule => new RegExp(rule.replace(/\*/g, '.*')).test(url))) {
+            return category;
+        }
+    }
+    return null;
+}
+
+function isWhitelisted(url) {
+    return whitelist.some(domain => url.includes(domain));
 }
 
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -189,6 +219,36 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
             case "getStats":
                 sendResponse({ success: true, stats: blockingStats });
                 break;
+            case "updateCategories":
+                enabledCategories = request.categories;
+                updateAdBlocker();
+                browser.storage.sync.set({ enabledCategories });
+                sendResponse({ success: true });
+                break;
+            case "addCustomRule":
+                customRules.push(request.rule);
+                updateAdBlocker();
+                browser.storage.sync.set({ customRules });
+                sendResponse({ success: true });
+                break;
+            case "removeCustomRule":
+                customRules = customRules.filter(rule => rule !== request.rule);
+                updateAdBlocker();
+                browser.storage.sync.set({ customRules });
+                sendResponse({ success: true });
+                break;
+            case "addToWhitelist":
+                whitelist.push(request.domain);
+                updateAdBlocker();
+                browser.storage.sync.set({ whitelist });
+                sendResponse({ success: true });
+                break;
+            case "removeFromWhitelist":
+                whitelist = whitelist.filter(domain => domain !== request.domain);
+                updateAdBlocker();
+                browser.storage.sync.set({ whitelist });
+                sendResponse({ success: true });
+                break;
             default:
                 sendResponse({ success: false, message: "Unknown action" });
         }
@@ -198,7 +258,10 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
 });
 
-browser.storage.sync.get('adBlockerEnabled').then((data) => {
+browser.storage.sync.get(['adBlockerEnabled', 'enabledCategories', 'customRules', 'whitelist']).then((data) => {
     adBlockerEnabled = data.adBlockerEnabled || false;
+    enabledCategories = data.enabledCategories || Object.values(RULE_CATEGORIES);
+    customRules = data.customRules || [];
+    whitelist = data.whitelist || [];
     updateAdBlocker();
 }).catch(error => console.error('Error loading settings:', error));
