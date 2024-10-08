@@ -19,12 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     toggleAdBlockerInput.addEventListener('change', () => {
-        const isEnabled = toggleAdBlockerInput.checked; 
-        toggleAdBlocker(isEnabled); 
+        const isEnabled = toggleAdBlockerInput.checked;
+        updateUI(isEnabled); // Immediately update UI
+        toggleAdBlocker(isEnabled);
     });
 
     chrome.storage.local.get('adBlockerEnabled', (data) => {
-        const adBlockerEnabled = data.adBlockerEnabled || false; 
+        const adBlockerEnabled = data.adBlockerEnabled || false;
+        toggleAdBlockerInput.checked = adBlockerEnabled; // Set the initial state of the toggle
         updateUI(adBlockerEnabled);
     });
 });
