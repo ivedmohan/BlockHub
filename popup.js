@@ -13,8 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateUI(enabled) {
-        toggleAdBlockerInput.checked = enabled; 
+        toggleAdBlockerInput.checked = enabled;
         statusText.textContent = enabled ? 'Blocker is ON' : 'Blocker is OFF';
+        statusText.style.color = enabled ? '#4CAF50' : '#333';
     }
 
     toggleAdBlockerInput.addEventListener('change', () => {
