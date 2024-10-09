@@ -4,19 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlockHub</title>
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="popup-container">
-        <h1>Ad Blocker</h1>
+        <h1>BlockHub</h1>
+        
         <div class="toggle-container">
             <label class="switch">
                 <input type="checkbox" id="toggle-adblocker">
                 <span class="slider"></span>
             </label>
-            <p id="status">Blocker is OFF</p>
+            <span id="status">Blocker is OFF</span>
+        </div>
+
+        <div class="categories">
+            <h2>Categories</h2>
+            <label><input type="checkbox" id="category-ads" checked> Ads</label>
+            <label><input type="checkbox" id="category-trackers" checked> Trackers</label>
+            <label><input type="checkbox" id="category-analytics" checked> Analytics</label>
+        </div>
+
+        <div class="custom-rules">
+            <h2>Custom Rules</h2>
+            <input type="text" id="custom-rule-input" placeholder="Enter custom rule">
+            <button id="add-custom-rule">Add Rule</button>
+            <ul id="custom-rules-list"></ul>
+        </div>
+
+        <div class="whitelist">
+            <h2>Whitelist</h2>
+            <input type="text" id="whitelist-input" placeholder="Enter domain to whitelist">
+            <button id="add-to-whitelist">Add to Whitelist</button>
+            <ul id="whitelist"></ul>
+        </div>
+
+        <div class="stats">
+            <h2>Statistics</h2>
+            <p>Total Blocked: <span id="total-blocked">0</span></p>
         </div>
     </div>
-    <script src="popup.js"></script> 
+    <script src="popup.js"></script>
 </body>
 </html>
