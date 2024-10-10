@@ -3,7 +3,7 @@ let adBlockerEnabled = false;
 function updateAdBlocker() {
     if (adBlockerEnabled) {
         chrome.declarativeNetRequest.updateDynamicRules({
-            removeRuleIds: Array.from({ length: 30 }, (_, i) => i + 1) 
+            removeRuleIds: Array.from({ length: 50 }, (_, i) => i + 1) 
         }, () => {
             if (chrome.runtime.lastError) {
                 console.error("Error removing rules:", JSON.stringify(chrome.runtime.lastError));
@@ -170,55 +170,116 @@ function updateAdBlocker() {
                             id: 27,
                             priority: 1,
                             action: { type: 'block' },
-                            condition: { urlFilter: 'revcontent.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                            condition: { urlFilter: 'popads.net', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
                         },
                         {
                             id: 28,
                             priority: 1,
                             action: { type: 'block' },
-                            condition: { urlFilter: 'popads.net', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                            condition: { urlFilter: 'adroll.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
                         },
                         {
                             id: 29,
                             priority: 1,
                             action: { type: 'block' },
-                            condition: { urlFilter: 'adroll.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        }
-                      
-                        {
-                            id: 34,
-                            priority: 1,
-                            action: { type: 'block' },
                             condition: { urlFilter: 'doubleverify.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
                         },
-                              
                         {
-                            id: 35,
+                            id: 30,
                             priority: 1,
                             action: { type: 'block' },
                             condition: { urlFilter: 'bidr.io', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
                         },
                         {
-                             id: 36,
-                             priority: 1,
-                             action: { type: 'block' },
-                             condition: { urlFilter: 'triplelift.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                            id: 31,
+                            priority: 1,
+                            action: { type: 'block' },
+                            condition: { urlFilter: 'triplelift.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
                         },
                         {
-                             id: 37,
-                             priority: 1,
-                             action: { type: 'block' },
-                             condition: { urlFilter: 'adsrvr.org', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                            id: 32,
+                            priority: 1,
+                            action: { type: 'block' },
+                            condition: { urlFilter: 'adsrvr.org', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
                         },
                         {
-                             id: 38,
-                             priority: 1,
-                             action: { type: 'block' },
-                             condition: { urlFilter: 'appnexus.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                         }
-
-                         // You can continue adding more blocking rules here...
-
+                            id: 33,
+                            priority: 1,
+                            action: { type: 'block' },
+                            condition: { urlFilter: 'appnexus.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                        {
+                            id: 34,
+                            priority: 1,
+                            action: { type: 'block' },
+                            condition: { urlFilter: '*banner*', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                        {
+                            id: 35,
+                            priority: 1,
+                            action: { type: 'block' },
+                            condition: { urlFilter: '*ad-*', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                        {
+                            id: 36,
+                            priority: 1,
+                            action: { type: 'block' },
+                            condition: { urlFilter: '*-ad-*', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                        {
+                            id: 37,
+                            priority: 1,
+                            action: { type: 'block' },
+                            condition: { urlFilter: '*_ad_*', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                        {
+                            id: 38,
+                            priority: 1,
+                            action: { type: 'block' },
+                            condition: { urlFilter: '*advert*', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                        {
+                            id: 39,
+                            priority: 1,
+                            action: { type: 'block' },
+                            condition: { urlFilter: '*sponsor*', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                        {
+                            id: 40,
+                            priority: 1,
+                            action: { type: 'block' },
+                            condition: { urlFilter: '*promo*', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                        {
+                            id: 41,
+                            priority: 1,
+                            action: { type: 'block' },
+                            condition: { urlFilter: '*analytics*', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                        {
+                            id: 42,
+                            priority: 1,
+                            action: { type: 'block' },
+                            condition: { urlFilter: '*tracking*', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                        {
+                            id: 43,
+                            priority: 1,
+                            action: { type: 'block' },
+                            condition: { urlFilter: '*pixel*', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                        {
+                            id: 44,
+                            priority: 1,
+                            action: { type: 'block' },
+                            condition: { urlFilter: '*beacon*', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                        {
+                            id: 45,
+                            priority: 1,
+                            action: { type: 'block' },
+                            condition: { urlFilter: '*metrics*', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        }
                     ],
                     removeRuleIds: [] // No rules to remove when enabling
                 }, () => {
@@ -231,7 +292,7 @@ function updateAdBlocker() {
     } else {
         // Disable ad blocking rules
         chrome.declarativeNetRequest.updateDynamicRules({
-            removeRuleIds: Array.from({ length: 30 }, (_, i) => i + 1) 
+            removeRuleIds: Array.from({ length: 50 }, (_, i) => i + 1) 
         }, () => {
             if (chrome.runtime.lastError) {
                 console.error("Error disabling ad blocking:", JSON.stringify(chrome.runtime.lastError));
