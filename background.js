@@ -215,7 +215,19 @@ function updateAdBlocker() {
                              priority: 1,
                              action: { type: 'block' },
                              condition: { urlFilter: 'appnexus.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                         }
+                         },
+                        {
+                             id: 39,
+                             priority: 1,
+                             action: { type: 'block' },
+                             condition: { urlFilter: 'lp.mgid.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                        {
+                            id: 40,
+                            priority: 1,
+                            action: { type: 'block' },
+                            condition: { urlFilter: 'propellerads.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                       }
 
                          // You can continue adding more blocking rules here...
 
