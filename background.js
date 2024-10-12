@@ -183,7 +183,7 @@ function updateAdBlocker() {
                             priority: 1,
                             action: { type: 'block' },
                             condition: { urlFilter: 'adroll.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        }
+                        },
                       
                         {
                             id: 34,
@@ -223,11 +223,35 @@ function updateAdBlocker() {
                              condition: { urlFilter: 'lp.mgid.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
                         },
                         {
-                            id: 40,
-                            priority: 1,
-                            action: { type: 'block' },
-                            condition: { urlFilter: 'propellerads.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                       }
+                             id: 40,
+                             priority: 1,
+                             action: { type: 'block' },
+                             condition: { urlFilter: 'propellerads.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                         },
+                         {
+                             id: 41,
+                             priority: 1,
+                             action: { type: 'block' },
+                             condition: { urlFilter: 'www.searchenginejournal.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                        {
+                             id: 42,
+                             priority: 1,
+                             action: { type: 'block' },
+                             condition: { urlFilter: 'https://raptive.com/', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                        {
+                             id: 43,
+                             priority: 1,
+                             action: { type: 'block' },
+                             condition: { urlFilter: 'https://adcash.com/', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                        {
+                             id: 44,
+                             priority: 1,
+                             action: { type: 'block' },
+                             condition: { urlFilter: 'adsterra.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        }
 
                          // You can continue adding more blocking rules here...
 
