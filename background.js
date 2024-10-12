@@ -1,4 +1,4 @@
-let adBlockerEnabled = false;
+let adBlockerEnabled = true;
 
 function updateAdBlocker() {
     if (adBlockerEnabled) {
@@ -208,6 +208,10 @@ function updateAdBlocker() {
                             action: { type: 'block' },
                             condition: { urlFilter: 'appnexus.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
                         },
+
+                            condition: { urlFilter: 'adroll.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
+                        },
+                    
                         {
                             id: 34,
                             priority: 1,
