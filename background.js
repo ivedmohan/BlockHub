@@ -1,4 +1,4 @@
-let adBlockerEnabled = false;
+let adBlockerEnabled = true;
 
 function updateAdBlocker() {
     if (adBlockerEnabled) {
@@ -183,7 +183,7 @@ function updateAdBlocker() {
                             priority: 1,
                             action: { type: 'block' },
                             condition: { urlFilter: 'adroll.com', resourceTypes: ['script', 'image', 'xmlhttprequest'] }
-                        }
+                        },
                       
                         {
                             id: 34,
